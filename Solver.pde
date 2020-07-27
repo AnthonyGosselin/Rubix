@@ -19,7 +19,7 @@ public class Solver{
     this.secondLayerStep = new BasicSecondLayerSolveStep();
     this.yellowCrossStep = new BasicYellowCrossSolveStep();
     this.yellowFaceStep = new BasicTopLayerSolveStep(SolveState.YELLOW_FACE);
-    this.topCornersStep = new BasicTopLayerSolveStep(SolveState.TOP_CORNERS);
+    this.topCornersStep = new BasicTopCornerSolveStep();
     this.topEdgesStep = new BasicTopLayerSolveStep(SolveState.TOP_EDGES);
     
     // ...Solved!

@@ -26,6 +26,20 @@ public class AlgorithmDefinitions {
     
     List<Algorithm> allAlgorithms = new ArrayList();
     AlgorithmUseCase useCase;
+    
+    // Top move algs ----------------
+      // Middle pieces
+    useCase = new SinglePieceUseCase(SolveState.ANY, new ConstrainedPosition(Face.R, Face.U), new Orientation(Color.GREEN, Face.R), new ConstrainedPosition(Face.F, Face.U), new Orientation(Color.GREEN, Face.F));
+    allAlgorithms.add(createAlgorithm(AlgorithmId.Null, useCase, Arrays.asList("u")));
+    
+    useCase = new SinglePieceUseCase(SolveState.ANY, new ConstrainedPosition(Face.L, Face.U), new Orientation(Color.GREEN, Face.L), new ConstrainedPosition(Face.F, Face.U), new Orientation(Color.GREEN, Face.F));
+    allAlgorithms.add(createAlgorithm(AlgorithmId.Null, useCase, Arrays.asList("U")));
+    
+    useCase = new SinglePieceUseCase(SolveState.ANY, new ConstrainedPosition(Face.B, Face.U), new Orientation(Color.GREEN, Face.B), new ConstrainedPosition(Face.F, Face.U), new Orientation(Color.GREEN, Face.F));
+    allAlgorithms.add(createAlgorithm(AlgorithmId.Null, useCase, Arrays.asList("u", "u")));
+    //--
+    
+    //--
   
     // Daisy white cross algs ------------------
     
@@ -285,6 +299,29 @@ public class AlgorithmDefinitions {
     
     
     // PLL ALGS ------------
+    
+      // Orient (u moves)
+        // Corner right
+    useCase = new SinglePieceUseCase(SolveState.TOP_CORNERS, new ConstrainedPosition(Face.B, Face.R, Face.U), new Orientation(Color.GREEN, Face.R), new ConstrainedPosition(Face.F, Face.R, Face.U), new Orientation(Color.GREEN, Face.F));
+    allAlgorithms.add(createAlgorithm(AlgorithmId.Null, useCase, Arrays.asList("u")));
+    
+    useCase = new SinglePieceUseCase(SolveState.TOP_CORNERS, new ConstrainedPosition(Face.F, Face.L, Face.U), new Orientation(Color.GREEN, Face.L), new ConstrainedPosition(Face.F, Face.R, Face.U), new Orientation(Color.GREEN, Face.F));
+    allAlgorithms.add(createAlgorithm(AlgorithmId.Null, useCase, Arrays.asList("U")));
+    
+    useCase = new SinglePieceUseCase(SolveState.TOP_CORNERS, new ConstrainedPosition(Face.B, Face.L, Face.U), new Orientation(Color.GREEN, Face.B), new ConstrainedPosition(Face.F, Face.R, Face.U), new Orientation(Color.GREEN, Face.F));
+    allAlgorithms.add(createAlgorithm(AlgorithmId.Null, useCase, Arrays.asList("u", "u")));
+    
+        // Corner left
+    useCase = new SinglePieceUseCase(SolveState.TOP_CORNERS, new ConstrainedPosition(Face.F, Face.R, Face.U), new Orientation(Color.GREEN, Face.R), new ConstrainedPosition(Face.F, Face.L, Face.U), new Orientation(Color.GREEN, Face.F));
+    allAlgorithms.add(createAlgorithm(AlgorithmId.Null, useCase, Arrays.asList("u")));
+    
+    useCase = new SinglePieceUseCase(SolveState.TOP_CORNERS, new ConstrainedPosition(Face.B, Face.L, Face.U), new Orientation(Color.GREEN, Face.L), new ConstrainedPosition(Face.F, Face.L, Face.U), new Orientation(Color.GREEN, Face.F));
+    allAlgorithms.add(createAlgorithm(AlgorithmId.Null, useCase, Arrays.asList("U")));
+    
+    useCase = new SinglePieceUseCase(SolveState.TOP_CORNERS, new ConstrainedPosition(Face.B, Face.R, Face.U), new Orientation(Color.GREEN, Face.B), new ConstrainedPosition(Face.F, Face.L, Face.U), new Orientation(Color.GREEN, Face.F));
+    allAlgorithms.add(createAlgorithm(AlgorithmId.Null, useCase, Arrays.asList("u", "u")));
+    //--
+    
     
     
    /* 

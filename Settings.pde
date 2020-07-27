@@ -32,6 +32,7 @@ enum Face{
  B
 }
 final Face[] ALL_FACES = {Face.U, Face.D, Face.L, Face.R, Face.F, Face.B};
+final Color[] SIDE_COLORS = {Color.GREEN, Color.ORANGE, Color.BLUE, Color.RED};
 
 enum CubeletFace{
  U,
@@ -98,7 +99,9 @@ enum SolveState{
   YELLOW_FACE,
   TOP_CORNERS,
   TOP_EDGES,
-  SOLVED
+  SOLVED,
+  
+  ANY
 }
 
 // The sub states of the SolveStates
@@ -117,7 +120,11 @@ enum SolveStepState{
   YELLOW_CROSS_DONE,
   
   TOP_LAYER_STEP_START,
-  TOP_LAYER_STEP_DONE
+  TOP_LAYER_STEP_DONE,
+  
+  TOP_CORNER_STEP_START,
+  TOP_CORNER_STEP_SOLVE,
+  TOP_CORNER_STEP_DONE
 }
 
 enum RelativeDirection{

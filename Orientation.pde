@@ -61,8 +61,11 @@ public class Orientation{
     }
   }
   
+  public boolean isEqual(Orientation otherOrientation){
+    return (this.col == otherOrientation.col && this.face == otherOrientation.face);
+  }
   
-   public String id(){
+  public String id(){
      String id = "";
     
      id += col + "_";

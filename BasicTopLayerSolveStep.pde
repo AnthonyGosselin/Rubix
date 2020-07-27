@@ -38,7 +38,7 @@ public class BasicTopLayerSolveStep extends ISolveStep{
     // This solve step type assumes it can complete the step in one algorithm
     debug.msg("Finding algorithm for step: " + this.globalState);
     AlgorithmUseCase useCase = new TopLayerUseCase(this.globalState, cube);
-    Algorithm algorithm = algorithmIndexer.getAlgorithmBy(SolveState.YELLOW_CROSS, useCase);
+    Algorithm algorithm = algorithmIndexer.getAlgorithmBy(this.globalState, useCase);
     feeder.performAlgorithm(algorithm);
     
     return true;
