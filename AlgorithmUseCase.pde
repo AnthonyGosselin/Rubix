@@ -32,8 +32,7 @@ public abstract class AlgorithmUseCase{
   
   public abstract void generateId();
   
-  public abstract void transpose(Face transposeFace); //<>// //<>// //<>//
+  public abstract void transpose(Face transposeFace); //<>// //<>// //<>// //<>//
   
   public abstract AlgorithmUseCase duplicate();
-  
 }

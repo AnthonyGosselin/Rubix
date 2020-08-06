@@ -5,6 +5,7 @@ class BasicTopCornerSolveStep extends ISolveStep {
   
   BasicTopCornerSolveStep(){
     this.stepState = SolveStepState.TOP_CORNER_STEP_START;
+    this.globalState = SolveState.TOP_CORNERS;
   }
   
   
@@ -29,7 +30,7 @@ class BasicTopCornerSolveStep extends ISolveStep {
     if (this.stepState == SolveStepState.TOP_CORNER_STEP_START){
       boolean done = orientStep();
       if (done){
-        debug.msg("First step top corners done");
+        debug.msg("Orient top corners step done");
         this.stepState = SolveStepState.TOP_CORNER_STEP_SOLVE;
       }
       return false;
@@ -135,6 +136,16 @@ class BasicTopCornerSolveStep extends ISolveStep {
       debug.msg("Corners already solved!");
       return true;
     }
-    return true;
+    
+   else{
+     debug.msg("Looking for algorithm to solved all corners");
+     
+     List<Cubelet> cornerCubelets = indexer.getCubeletsBy(Layer.TOP, CubeletType.CORNER);
+     AlgorithmUseCase useCase = new SolvedPiecesUseCase(this.globalState, cornerCubelets);
+     Algorithm algorithm = algorithmIndexer.getAlgorithmBy(SolveState.TOP_CORNERS, useCase);
+     feeder.performAlgorithm(algorithm);
+        
+     return true;
+   } 
   }
 }

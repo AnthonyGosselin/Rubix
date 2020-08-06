@@ -44,6 +44,13 @@ public class Cubelet{
         return pos.z > 0;
       case B:
         return pos.z < 0;
+        
+      case M:
+        return pos.x == 0;
+      case E:
+        return pos.y == 0;
+      case S:
+        return pos.z == 0;
       default:
         return false;
     }
@@ -170,6 +177,11 @@ public class Cubelet{
     }
     println("Solved orientation:", col, solvedFace);
     return new Orientation(col, solvedFace);
+  }
+  
+  public Permutation getNeededPermutation(){
+    Permutation permutation = new Permutation(this.getConstrainedPosition(), this.getSolvedPosition()); 
+    return permutation;
   }
   
 

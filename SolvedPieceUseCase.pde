@@ -1,6 +1,7 @@
 public class SolvedPiecesUseCase extends AlgorithmUseCase{
   
   // Could inherit from a "MultiplePieceUseCase" class
+  List<Boolean> initialOrderedSolvedList;
   List<Boolean> orderedSolvedList;
   
   // TODO: implement a constructor that can be created from any set of transforms
@@ -21,11 +22,24 @@ public class SolvedPiecesUseCase extends AlgorithmUseCase{
     generateId();
   }
   
+  // Define use case with booleans directly
+  SolvedPiecesUseCase(SolveState state, Boolean defineBool, List<Boolean> orderedSolvedList){
+    this.state = state;
+    
+    if (orderedSolvedList.size() != 8){
+      debug.msg("WARNING: incorrect bool list size for SolvedPiecesUseCase. Expected 8"); 
+    }
+    
+    this.orderedSolvedList = new ArrayList<Boolean>(orderedSolvedList);
+    this.initialOrderedSolvedList = new ArrayList<Boolean>(orderedSolvedList);
+    generateId();
+  }
+  
   // Clone another useCase
   SolvedPiecesUseCase(SolvedPiecesUseCase useCase){
     this.state = useCase.state;
-    this.orderedSolvedList = new ArrayList(8);
-    this.orderedSolvedList = useCase.orderedSolvedList;
+    this.orderedSolvedList = new ArrayList<Boolean>(useCase.orderedSolvedList);
+    this.initialOrderedSolvedList = new ArrayList<Boolean>(useCase.orderedSolvedList);
     generateId();
   }
   
@@ -92,6 +106,9 @@ public class SolvedPiecesUseCase extends AlgorithmUseCase{
       }
     }
     
+    // Save to initial list
+    this.initialOrderedSolvedList = new ArrayList<Boolean>(this.orderedSolvedList);
+    
   }
   
   public void generateId(){
@@ -109,32 +126,42 @@ public class SolvedPiecesUseCase extends AlgorithmUseCase{
   public void transpose(Face transposeFace){
     HashMap<Face, Face> convertFace = this.getFaceTransposeMap(transposeFace);
     
-    List<Integer> newIndexOrder;
-    if (convertFace.get(Face.F) == Face.R){
-      
+    int newStartIndex = 0;
+    Face convertedFace = convertFace.get(Face.F);
+    if (convertedFace == Face.L){
+      newStartIndex = 1;
     }
-    else if (convertFace.get(Face.F) == Face.B){
-      
+    else if (convertedFace == Face.B){
+      newStartIndex = 2;
     }
-    else if (convertFace.get(Face.F) == Face.L){
-      
-    }
-    
-    
-    
-    List<Face> orderedFaces = Arrays.asList(Face.F, Face.L, Face.B, Face.R);
-    
-    List<DefinedTransform> newOrderedSolvedList = new ArrayList(8);
-
-    // Convert all bools order
-    
-    for (Boolean bool : this.orderedSolvedList){
-      
-     
-      newOrderedSolvedList.add();
+    else if (convertedFace == Face.R){
+      newStartIndex = 3;
     }
     
-    addTransforms(newStartTransforms);
+    // Convert order
+    List<Boolean> newOrderedSolvedList = new ArrayList(8);
+    
+    // Edges
+    int ind = newStartIndex;
+    for (int c = 0; c < 4; c++){
+      if (ind > 3){
+        ind = 0;
+      }
+      newOrderedSolvedList.add(this.initialOrderedSolvedList.get(ind));
+      ind++;
+    }
+    
+    // Corners
+    ind = newStartIndex + 4;
+    for (int c = 0; c < 4; c++){
+      if (ind > 7){
+        ind = 4;
+      }
+      newOrderedSolvedList.add(this.initialOrderedSolvedList.get(ind));
+      ind++;
+    }
+    
+    this.orderedSolvedList = newOrderedSolvedList;
     generateId(); // Regenerate the id
   }
   

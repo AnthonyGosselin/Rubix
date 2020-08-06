@@ -322,26 +322,38 @@ public class AlgorithmDefinitions {
     allAlgorithms.add(createAlgorithm(AlgorithmId.Null, useCase, Arrays.asList("u", "u")));
     //--
     
+      // Top corners --
+      // 2 Adjacent corners solved (classic case)
+    useCase = new SolvedPiecesUseCase(SolveState.TOP_CORNERS, true, Arrays.asList(null, null, null, null, true, true, false, false));
+    allAlgorithms.add(createAlgorithm(AlgorithmId.Null, useCase, Arrays.asList("r", "u", "R", "U", "R", "f", "r", "r", "U", "R", "U", "r", "u", "R", "F")));
+    
+                                                                                           
+      // 2 diagonal corners solved (rarer case)
+    useCase = new SolvedPiecesUseCase(SolveState.TOP_CORNERS, true, Arrays.asList(null, null, null, null, true, false, true, false));
+    allAlgorithms.add(createAlgorithm(AlgorithmId.Null, useCase, Arrays.asList("f", "r", "U", "R", "U", "r", "u", "R", "F", "r", "u", "R", "U", "R", "f", "r", "F")));
     
     
-   /* 
-      // Solved template                                                                                                    
-    useCase = new TopLayerUseCase(SolveState.TOP_CORNERS, new ArrayList<DefinedTransform>(Arrays.asList(new DefinedTransform(Face.U, Face.F, Color.YELLOW, Face.U),
-                                                                                                        new DefinedTransform(Face.U, Face.L, Color.YELLOW, Face.U),
-                                                                                                        new DefinedTransform(Face.U, Face.B, Color.YELLOW, Face.U),
-                                                                                                        new DefinedTransform(Face.U, Face.R, Color.YELLOW, Face.U),
-                                                                                                        new DefinedTransform(Face.U, Face.F, Face.L, Color.YELLOW, Face.U),
-                                                                                                        new DefinedTransform(Face.U, Face.B, Face.L, Color.YELLOW, Face.U),
-                                                                                                        new DefinedTransform(Face.U, Face.B, Face.R, Color.YELLOW, Face.U),
-                                                                                                        new DefinedTransform(Face.U, Face.F, Face.R, Color.YELLOW, Face.U) )));
-    allAlgorithms.add(createAlgorithm(AlgorithmId.Null, useCase, Arrays.asList("")));
+      // Top edges --
+      // 3 edges from left
+    useCase = new PermutationUseCase(SolveState.TOP_EDGES, Arrays.asList(new Permutation(Face.F, Face.U, Face.L, Face.U),
+                                                                         new Permutation(Face.L, Face.U, Face.R, Face.U),
+                                                                         new Permutation(Face.R, Face.U, Face.F, Face.U)));
+    allAlgorithms.add(createAlgorithm(AlgorithmId.Null, useCase, Arrays.asList("L", "u", "L", "U", "L", "U", "L", "u", "l", "u", "l", "l")));
+    
+      // 3 edges form right
+    useCase = new PermutationUseCase(SolveState.TOP_EDGES, Arrays.asList(new Permutation(Face.F, Face.U, Face.R, Face.U),
+                                                                         new Permutation(Face.L, Face.U, Face.F, Face.U),
+                                                                         new Permutation(Face.R, Face.U, Face.L, Face.U)));
+    allAlgorithms.add(createAlgorithm(AlgorithmId.Null, useCase, Arrays.asList("r", "U", "r", "u", "r", "u", "r", "U", "R", "U", "r", "r")));
+    
+    /*
+    useCase = new PermutationUseCase(SolveState.TOP_EDGES, Arrays.asList(new Permutation(Face.F, Face.U, Face.L, Face.U),
+                                                                         new Permutation(Face.L, Face.U, Face.R, Face.U),
+                                                                         new Permutation(Face.R, Face.U, Face.F, Face.U)));
+    allAlgorithms.add(createAlgorithm(AlgorithmId.Null, useCase, Arrays.asList()));
     */
-                                                                                                        
-                                                                                                        
-
-    
-    
-    
+      
+        
     // End of list -----------------
     
     

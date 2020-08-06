@@ -89,6 +89,38 @@ class Move{
         this.axis = Axis.X;
         this.angle = QUARTER_TURN;
         break;
+        
+      case m:
+        this.face = Face.M;
+        this.axis = Axis.X;
+        this.angle = -QUARTER_TURN;
+        break;
+      case e:
+        this.face = Face.E;
+        this.axis = Axis.Y;
+        this.angle = -QUARTER_TURN;
+        break;
+      case s:
+        this.face = Face.S;
+        this.axis = Axis.Z;
+        this.angle = QUARTER_TURN;
+        break;
+        
+      case M:
+        this.face = Face.M;
+        this.axis = Axis.X;
+        this.angle = QUARTER_TURN;
+        break;
+      case E:
+        this.face = Face.E;
+        this.axis = Axis.Y;
+        this.angle = QUARTER_TURN;
+        break; 
+      case S:
+        this.face = Face.S;
+        this.axis = Axis.Z;
+        this.angle = -QUARTER_TURN;
+        break;
       default:
         print("INVALID MOVE CREATED");
         break;

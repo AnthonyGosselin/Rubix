@@ -29,7 +29,11 @@ enum Face{
  L, 
  R,
  F, 
- B
+ B,
+ 
+ M,
+ E,
+ S
 }
 final Face[] ALL_FACES = {Face.U, Face.D, Face.L, Face.R, Face.F, Face.B};
 final Color[] SIDE_COLORS = {Color.GREEN, Color.ORANGE, Color.BLUE, Color.RED};
@@ -87,7 +91,14 @@ enum MoveType{
  L, 
  R,
  F, 
- B
+ B,
+ 
+ m,
+ e,
+ s,
+ M,
+ E, 
+ S
 }
 
 

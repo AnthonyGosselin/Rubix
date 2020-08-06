@@ -69,6 +69,23 @@ public class AlgorithmIndexer{
     return null;
   }
   
+  public AlgorithmUseCase buildUseCaseByState(SolveState solveState, Cube cube){
+    AlgorithmUseCase useCase = null;
+    
+    switch(solveState){
+      case YELLOW_FACE:
+        useCase = new TopLayerUseCase(solveState, cube);
+        break;
+      case TOP_EDGES:
+        useCase = new SolvedPiecesUseCase(solveState, cube);
+        break;
+      default:
+        debug.msg("Unsupported solve state for algorithm use case builder: " + solveState);
+        break;
+    }
+    
+    return useCase;
+  }
 
   // Algorithms are defined relatively and will be translated to absolute moves
   private void loadAlgorithms(){

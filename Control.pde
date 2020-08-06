@@ -18,24 +18,7 @@ void keyPressed() {
   else if (key == 'b'){
     cube.addMoveToQueue(new Move(MoveType.b));
   }
-  /*if (key == 'u') {
-    cubelet.transform.rotationAroundAxis(QUARTER_TURN, Axis.Y);
-  }
-  else if (key == 'f'){
-    cubelet.transform.rotationAroundAxis(QUARTER_TURN, Axis.Z);
-  }
-  else if (key == 'r'){
-    cubelet.transform.rotationAroundAxis(QUARTER_TURN, Axis.X);
-  }
-  else if (key == 'U'){
-    cubelet.transform.rotationAroundAxis(-QUARTER_TURN, Axis.Y);
-  }
-  else if (key == 'F'){
-    cubelet.transform.rotationAroundAxis(-QUARTER_TURN, Axis.Z);
-  }
-  else if (key == 'R'){
-    cubelet.transform.rotationAroundAxis(-QUARTER_TURN, Axis.X);
-  }*/
+  
   // Prime moves
   else if (key == 'U') {
     cube.addMoveToQueue(new Move(MoveType.U));
@@ -54,6 +37,25 @@ void keyPressed() {
   }
   else if (key == 'B'){
     cube.addMoveToQueue(new Move(MoveType.B));
+  }
+  
+  else if (key == 'm') {
+    cube.addMoveToQueue(new Move(MoveType.m));
+  }
+  else if (key == 'e') {
+    cube.addMoveToQueue(new Move(MoveType.e));
+  }
+  else if (key == 'x') {
+    cube.addMoveToQueue(new Move(MoveType.s));
+  }
+  else if (key == 'M') {
+    cube.addMoveToQueue(new Move(MoveType.M));
+  }
+  else if (key == 'E') {
+    cube.addMoveToQueue(new Move(MoveType.E));
+  }
+  else if (key == 'X') {
+    cube.addMoveToQueue(new Move(MoveType.S));
   }
   
   else if (key == 's'){

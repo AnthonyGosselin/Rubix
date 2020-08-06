@@ -58,7 +58,7 @@ public class BasicYellowCrossSolveStep extends ISolveStep{
       Algorithm algorithm = algorithmIndexer.getAlgorithmBy(SolveState.YELLOW_CROSS, useCase);
       feeder.performAlgorithm(algorithm);
       
-      return false; // In theory it should be solved in one step, but we can redo the validation with another loop //<>//
+      return false; // In theory it should be solved in one step, but we can redo the validation with another loop //<>// //<>//
     }
   }
   
