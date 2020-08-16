@@ -11,9 +11,9 @@ final boolean EXPLODE_CUBE = false;
 final boolean SHOW_CUBELET_AXIS = false;
 final static boolean DEBUG = true;
 boolean STEP_SOLVE = false; // Manually activate each step of solve
-final SolveState SOLVE_UNTIL_STATE = SolveState.TOP_CORNERS;
-boolean SPEED_SOLVE = true;
-float ANIM_ANGLE_INC = SPEED_SOLVE ? HALF_PI : 0.17; // In radians
+final SolveState SOLVE_UNTIL_STATE = null; //SolveState.TOP_CORNERS;
+boolean SPEED_SOLVE = false;
+float ANIM_ANGLE_INC = SPEED_SOLVE ? HALF_PI : 0.25; // In radians
 
 final color RED = color(240, 22, 22);
 final color ORANGE = color(247, 140, 47);
@@ -29,11 +29,7 @@ enum Face{
  L, 
  R,
  F, 
- B,
- 
- M,
- E,
- S
+ B
 }
 final Face[] ALL_FACES = {Face.U, Face.D, Face.L, Face.R, Face.F, Face.B};
 final Color[] SIDE_COLORS = {Color.GREEN, Color.ORANGE, Color.BLUE, Color.RED};
@@ -91,14 +87,7 @@ enum MoveType{
  L, 
  R,
  F, 
- B,
- 
- m,
- e,
- s,
- M,
- E, 
- S
+ B
 }
 
 

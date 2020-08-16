@@ -77,7 +77,7 @@ public class AlgorithmIndexer{
         useCase = new TopLayerUseCase(solveState, cube);
         break;
       case TOP_EDGES:
-        useCase = new SolvedPiecesUseCase(solveState, cube);
+        useCase = new PermutationUseCase(solveState, cube);
         break;
       default:
         debug.msg("Unsupported solve state for algorithm use case builder: " + solveState);

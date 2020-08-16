@@ -248,8 +248,8 @@ public class AlgorithmDefinitions {
                                                                                                         new DefinedTransform(Face.U, Face.R, Color.YELLOW, Face.U),
                                                                                                         new DefinedTransform(Face.U, Face.F, Face.L, Color.YELLOW, Face.L),
                                                                                                         new DefinedTransform(Face.U, Face.B, Face.L, Color.YELLOW, Face.L),
-                                                                                                        new DefinedTransform(Face.U, Face.B, Face.R, Color.YELLOW, Face.B),
-                                                                                                        new DefinedTransform(Face.U, Face.F, Face.R, Color.YELLOW, Face.F) )));
+                                                                                                        new DefinedTransform(Face.U, Face.B, Face.R, Color.YELLOW, Face.R),
+                                                                                                        new DefinedTransform(Face.U, Face.F, Face.R, Color.YELLOW, Face.R) )));
     allAlgorithms.add(createAlgorithm(AlgorithmId.Null, useCase, Arrays.asList("r", "u", "u",  "r", "r", "U", "r", "r", "U",  "r", "r", "u", "u", "r")));
     
       // Factory conveyor belt                                                                                                 
@@ -257,10 +257,10 @@ public class AlgorithmDefinitions {
                                                                                                         new DefinedTransform(Face.U, Face.L, Color.YELLOW, Face.U),
                                                                                                         new DefinedTransform(Face.U, Face.B, Color.YELLOW, Face.U),
                                                                                                         new DefinedTransform(Face.U, Face.R, Color.YELLOW, Face.U),
-                                                                                                        new DefinedTransform(Face.U, Face.F, Face.L, Color.YELLOW, Face.F),
+                                                                                                        new DefinedTransform(Face.U, Face.F, Face.L, Color.YELLOW, Face.L),
                                                                                                         new DefinedTransform(Face.U, Face.B, Face.L, Color.YELLOW, Face.L),
                                                                                                         new DefinedTransform(Face.U, Face.B, Face.R, Color.YELLOW, Face.B),
-                                                                                                        new DefinedTransform(Face.U, Face.F, Face.R, Color.YELLOW, Face.U) )));
+                                                                                                        new DefinedTransform(Face.U, Face.F, Face.R, Color.YELLOW, Face.F) )));
     allAlgorithms.add(createAlgorithm(AlgorithmId.Null, useCase, Arrays.asList("L", "U", "l", "U", "L", "u", "u", "l")));
     
       // Tease chair                                                                                                  
@@ -346,12 +346,19 @@ public class AlgorithmDefinitions {
                                                                          new Permutation(Face.R, Face.U, Face.L, Face.U)));
     allAlgorithms.add(createAlgorithm(AlgorithmId.Null, useCase, Arrays.asList("r", "U", "r", "u", "r", "u", "r", "U", "R", "U", "r", "r")));
     
-    /*
-    useCase = new PermutationUseCase(SolveState.TOP_EDGES, Arrays.asList(new Permutation(Face.F, Face.U, Face.L, Face.U),
+      // Opposites swap (* Work around with two previous algs instead of using slices*)
+    useCase = new PermutationUseCase(SolveState.TOP_EDGES, Arrays.asList(new Permutation(Face.F, Face.U, Face.B, Face.U),
                                                                          new Permutation(Face.L, Face.U, Face.R, Face.U),
-                                                                         new Permutation(Face.R, Face.U, Face.F, Face.U)));
-    allAlgorithms.add(createAlgorithm(AlgorithmId.Null, useCase, Arrays.asList()));
-    */
+                                                                         new Permutation(Face.B, Face.U, Face.F, Face.U),
+                                                                         new Permutation(Face.R, Face.U, Face.L, Face.U)));
+    allAlgorithms.add(createAlgorithm(AlgorithmId.Null, useCase, Arrays.asList("r", "U", "r", "u", "r", "u", "r", "U", "R", "U", "r", "r", "b", "U", "b", "u", "b", "u", "b", "U", "B", "U", "b", "b")));
+    
+      // Opposites swap (* Work around with two previous algs instead of using slices*)
+    useCase = new PermutationUseCase(SolveState.TOP_EDGES, Arrays.asList(new Permutation(Face.F, Face.U, Face.R, Face.U),
+                                                                         new Permutation(Face.R, Face.U, Face.F, Face.U),
+                                                                         new Permutation(Face.B, Face.U, Face.L, Face.U),
+                                                                         new Permutation(Face.L, Face.U, Face.B, Face.U)));
+    allAlgorithms.add(createAlgorithm(AlgorithmId.Null, useCase, Arrays.asList("r", "U", "r", "u", "r", "u", "r", "U", "R", "U", "r", "r", "f", "U", "f", "u", "f", "u", "f", "U", "F", "U", "f", "f")));
       
         
     // End of list -----------------

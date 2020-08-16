@@ -39,25 +39,6 @@ void keyPressed() {
     cube.addMoveToQueue(new Move(MoveType.B));
   }
   
-  else if (key == 'm') {
-    cube.addMoveToQueue(new Move(MoveType.m));
-  }
-  else if (key == 'e') {
-    cube.addMoveToQueue(new Move(MoveType.e));
-  }
-  else if (key == 'x') {
-    cube.addMoveToQueue(new Move(MoveType.s));
-  }
-  else if (key == 'M') {
-    cube.addMoveToQueue(new Move(MoveType.M));
-  }
-  else if (key == 'E') {
-    cube.addMoveToQueue(new Move(MoveType.E));
-  }
-  else if (key == 'X') {
-    cube.addMoveToQueue(new Move(MoveType.S));
-  }
-  
   else if (key == 's'){
     feeder.shuffleCube();
   }

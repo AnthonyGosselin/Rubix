@@ -138,7 +138,7 @@ class BasicTopCornerSolveStep extends ISolveStep {
     }
     
    else{
-     debug.msg("Looking for algorithm to solved all corners");
+     debug.msg("Looking for algorithm to solve all corners");
      
      List<Cubelet> cornerCubelets = indexer.getCubeletsBy(Layer.TOP, CubeletType.CORNER);
      AlgorithmUseCase useCase = new SolvedPiecesUseCase(this.globalState, cornerCubelets);
