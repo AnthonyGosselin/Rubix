@@ -11,7 +11,7 @@ final boolean EXPLODE_CUBE = false;
 final boolean SHOW_CUBELET_AXIS = false;
 final static boolean DEBUG = true;
 boolean STEP_SOLVE = false; // Manually activate each step of solve
-final SolveState SOLVE_UNTIL_STATE = null; //SolveState.TOP_CORNERS;
+final SolveState SOLVE_UNTIL_STATE = SolveState.TOP_CORNERS;
 boolean SPEED_SOLVE = false;
 float ANIM_ANGLE_INC = SPEED_SOLVE ? HALF_PI : 0.25; // In radians
 
@@ -204,23 +204,3 @@ public static class Settings{
   }
   
 }
-
-
-
-
-
-
-
-
-/*
-PMatrix3D rotateXMatrix = new PMatrix3D(1,           0,          0,           0,
-                                              0,           cos(angle), -sin(angle), 0,
-                                              0,           sin(angle), cos(angle),  0,
-                                              0,           0,          0,           1);
-
-      PMatrix3D rotateYMatrix = new PMatrix3D(cos(angle), 0, -sin(angle), 0,
-                                              0,          1, 0,           0,
-                                              sin(angle), 0, cos(angle),  0,
-                                              0,          0, 0,           1);
-                                           
-*/

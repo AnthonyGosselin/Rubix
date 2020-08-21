@@ -4,8 +4,8 @@ public class Cubelet{
   Transform transform; // Position and rotation of cubelet
   
   float size;
-  HashMap<Color, Face> colorToFace; // this is kind of misleading... not sure what the color value is useful for
-  private HashMap<CubeletFace, Integer> cubeletFaceToColor; // The local position of colors that does not vary (Colors are converted to ints (as they always are))
+  HashMap<Color, Face> colorToFace; // List of cubelet's colors and their current direction
+  private HashMap<CubeletFace, Integer> cubeletFaceToColor; //The initial position of colors that does not vary, [Colors are converted to ints as they always are]
   List<Color> colors;
   List<Face> faces;
   CubeletType type;
@@ -186,13 +186,6 @@ public class Cubelet{
     colorToFace = new HashMap(3); // Max three colored faces
     faces = new ArrayList();
     colors = new ArrayList();
-    /*colorToFace = new HashMap(6);
-    colorToFace.put(Color.YELLOW, Face.U);
-    colorToFace.put(Color.WHITE, Face.D);
-    colorToFace.put(Color.RED, Face.L);
-    colorToFace.put(Color.ORANGE, Face.R);
-    colorToFace.put(Color.GREEN, Face.F);
-    colorToFace.put(Color.BLUE, Face.B);*/
     
     // By default, each face is black
     cubeletFaceToColor.put(CubeletFace.U, BLACK);
@@ -201,14 +194,7 @@ public class Cubelet{
     cubeletFaceToColor.put(CubeletFace.R, BLACK);
     cubeletFaceToColor.put(CubeletFace.F, BLACK);
     cubeletFaceToColor.put(CubeletFace.B, BLACK);
-    
-    /*cubeletFaceToColor.put(CubeletFace.U, YELLOW);
-    cubeletFaceToColor.put(CubeletFace.D, WHITE);
-    cubeletFaceToColor.put(CubeletFace.L, RED);
-    cubeletFaceToColor.put(CubeletFace.R, ORANGE);
-    cubeletFaceToColor.put(CubeletFace.F, GREEN);
-    cubeletFaceToColor.put(CubeletFace.B, BLUE);*/
-    
+
     // Up & down (Y)
     if (p.y < 0){
       cubeletFaceToColor.put(CubeletFace.U, YELLOW);

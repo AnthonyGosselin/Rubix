@@ -11,7 +11,7 @@ class BasicTopCornerSolveStep extends ISolveStep {
   
   private boolean checkIfSolved(){
     List<Cubelet> cornerCubelets = indexer.getCubeletsBy(Layer.TOP, CubeletType.CORNER);
-    boolean allSolved = true;
+    boolean allSolved = cornerCubelets.size() > 0 ? true : false;
     for (Cubelet cubelet : cornerCubelets){
       if (!cubelet.isSolved()){
         allSolved = false;
@@ -78,7 +78,9 @@ class BasicTopCornerSolveStep extends ISolveStep {
     for (Color col : SIDE_COLORS){
       List<Cubelet> cubeletsWithColor = indexer.getCubeletsBy(Layer.TOP, CubeletType.CORNER, col);
       // Compare to see if the two cubelets with given color is pointing the same way
+      println("Orientation color: " + col + " " + cubeletsWithColor.get(0).getOrientation(col) + " // " + cubeletsWithColor.get(1).getOrientation(col));
       if (cubeletsWithColor.get(0).getOrientation(col).isEqual(cubeletsWithColor.get(1).getOrientation(col))){
+        debug.msg("Corner orientation is equal");
         solvedCornerPair = cubeletsWithColor;
         solvedColor = col;
         break;
