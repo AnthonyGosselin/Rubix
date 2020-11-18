@@ -6,9 +6,11 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject; 
 import org.json.simple.parser.*;
 
-public static class CubeState {
+public class CubeState {
 
-    private static Color getColorByString(String colorName){
+    private Integer[][] cubeStateColors = {{}};
+
+    private Integer getColorByString(String colorName){
         switch (colorName) {
             case "GREEN":
                 return GREEN;
@@ -28,10 +30,10 @@ public static class CubeState {
         }
     }
 
-    public static Color[][] loadColorStateFromFile(String filePath){
+    public Color[][] loadColorStateFromFile(String filePath){
         // Parse JSON file
-        JSONObject stateObj = (JSONObject) new JSONParser().parse(new FileReader(stateFilePath));
-        Color[][] cubeStateColors = {{}};
+        JSONObject stateObj = (JSONObject) new JSONParser().parse(new FileReader(stateFilePath)); // Use parseJSONObject() instead: for processing???
+        this.cubeStateColors = {{}};
 
         String[] faces = {"F", "L", "B", "R", "U", "D"};
         int i = 1; // Indexing starting at 1 to respect defined standard for cube state representation
@@ -45,7 +47,7 @@ public static class CubeState {
                 // Get tile index and color, and store it
                 int tileIndex = Integer.parseInt(pair.getKet());
                 Color tileColor = getColorByString(pair.getValue());
-                cubeStateColors[i][tileIndex] = tileColor;
+                this.cubeStateColors[i][tileIndex] = tileColor;
             } 
             i++;
         }
@@ -53,8 +55,9 @@ public static class CubeState {
         return cubeStateColors;
     }
 
-    public static saveColorStateToFile(Color[][] currentState, String fileName){
-        
+    public saveColorStateToFile(Color[][] currentState, String fileName){
+        this.cubeStateColors = currentState;
+
     }
 
 }
